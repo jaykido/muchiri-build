@@ -43,6 +43,12 @@ export const productType = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: "stock", // Add the stock field here
+      title: "Stock",
+      type: "number", // Assuming stock is a number representing available quantity
+      validation: (Rule) => Rule.min(0), // Stock should be non-negative
+    }),
+    defineField({
       name: "categories",
       title: "Categories",
       type: "array",
@@ -54,11 +60,12 @@ export const productType = defineType({
       title: "name",
       media: "image",
       price: "price",
+      stock: "stock", // You can also show stock in the preview if needed
     },
     prepare(select) {
       return {
         title: select.title,
-        subtitle: `$${select.price}`,
+        subtitle: `$${select.price} - ${select.stock ? `${select.stock} in stock` : "Out of stock"}`,
         media: select.media,
       };
     },
