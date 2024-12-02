@@ -381,14 +381,14 @@
         },
         "optional": true
       },
-      "coupoCode": {
+      "couponCode": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
         "optional": true
       },
-      "valideFrom": {
+      "validFrom": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
@@ -399,6 +399,13 @@
         "type": "objectAttribute",
         "value": {
           "type": "string"
+        },
+        "optional": true
+      },
+      "isActive": {
+        "type": "objectAttribute",
+        "value": {
+          "type": "boolean"
         },
         "optional": true
       }

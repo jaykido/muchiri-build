@@ -1,5 +1,4 @@
 import { TagIcon } from "@sanity/icons";
-import { title } from "process";
 import { defineField, defineType } from "sanity";
 
 export const salesType = defineType({
@@ -25,19 +24,27 @@ export const salesType = defineType({
       description: "Amount off in percentage or fixed value",
     }),
     defineField({
-      name: "coupoCode",
+      name: "couponCode",
       type: "string",
       title: "Coupon Code",
     }),
     defineField({
-      name: "valideFrom",
+      name: "validFrom",
       type: "datetime",
-      title: "valid From",
+      title: "Valid From",
     }),
     defineField({
       name: "validUntil",
       type: "datetime",
-      title: "valid until",
+      title: "Valid Until",
+    }),
+    // Add the isActive field here
+    defineField({
+      name: "isActive",
+      type: "boolean", // You can use a boolean to indicate if the sale is active
+      title: "Is Active",
+      description: "Indicates if the sale is currently active",
+      initialValue: true, // Optionally set a default value
     }),
   ],
   preview: {
