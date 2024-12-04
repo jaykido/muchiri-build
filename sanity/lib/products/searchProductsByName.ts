@@ -5,7 +5,7 @@ export const searchProductsByName = async (searchParams: string) => {
   const PRODUCT_SEARCH_QUERY = defineQuery(`
         *[
             _type == "product"
-            && name match $searchParam
+            && name match $searchParams
         ] | order(name asc)
         `);
 
