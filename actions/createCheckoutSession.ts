@@ -44,7 +44,7 @@ export async function createCheckoutSession(
       metadata,
       mode: "payment",
       allow_promotion_codes: true,
-      success_url: `${`https:${process.env.JACKSURL}` || process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`,
+      success_url: `${`https://${process.env.JACKSURL}` || process.env.NEXT_PUBLIC_BASE_URL}/success?session_id={CHECKOUT_SESSION_ID}&orderNumber=${metadata.orderNumber}`,
       cancel_url: `${`https://${process.env.JACKSURL}` || process.env.NEXT_PUBLIC_BASE_UR}/basket`,
       line_items: items.map((item) => ({
         price_data: {
@@ -54,10 +54,11 @@ export async function createCheckoutSession(
             name: item.product.name || "Unnamed Product",
             description: `Product ID: ${item.product._id}`,
             metadata: {
-              id: item.product.image
-                ? ImageUrl(item.product.image).url()
-                : null,
+              id: item.product._id,
             },
+            images: item.product.image
+              ? [ImageUrl(item.product.image).url()]
+              : undefined,
           },
         },
         quantity: item.quantity,
