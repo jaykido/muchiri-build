@@ -3,7 +3,6 @@
 import { Product } from "@/sanity.types";
 import useBasketStore from "@/store/store";
 import { useEffect, useState } from "react";
-import { SortableItemIdContext } from "sanity/_singletons";
 
 interface AddToBasketButtonProps {
   product: Product;

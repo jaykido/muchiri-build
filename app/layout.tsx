@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css"; // <-- This line causes the issue (Module not found)
 import { ClerkProvider } from "@clerk/nextjs";
 import { SanityLive } from "@/sanity/lib/live";
