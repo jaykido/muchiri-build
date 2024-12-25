@@ -21,7 +21,7 @@ export async function createCheckoutSession(
   metadata: Metadata
 ) {
   try {
-    const itemsWithoutPrice = items.filter((item) => item.product.price);
+    const itemsWithoutPrice = items.filter((item) => !item.product.price);
 
     if (itemsWithoutPrice.length > 0) {
       throw new Error("Some Items do not have a price:");
