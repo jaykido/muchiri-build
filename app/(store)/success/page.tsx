@@ -39,7 +39,7 @@ function SuccessPage() {
         </div>
 
         <h1 className="text-2xl font-bold mb-6 text-center">
-          Muchiri Says "Thank You for Your Order!"
+          Muchiri Says Thank You for Your Order!
         </h1>
 
         <div className="border-t border-b border-gray-200 py-6 mb-6">
