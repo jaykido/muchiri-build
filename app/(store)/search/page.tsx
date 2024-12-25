@@ -8,7 +8,7 @@ async function SearchPage({
     query: string;
   };
 }) {
-  const { query } = await searchParams;
+  const { query } = searchParams; // No need to await here
 
   const products = await searchProductsByName(query);
 
@@ -20,7 +20,7 @@ async function SearchPage({
             No products found for: {query}
           </h1>
           <p className="text-gray-600 text-center">
-            Try serching with different keywords
+            Try searching with different keywords
           </p>
         </div>
       </div>
