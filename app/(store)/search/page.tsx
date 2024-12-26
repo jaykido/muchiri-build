@@ -1,14 +1,14 @@
 import ProductGrid from "@/components/ProductGrid";
 import { searchProductsByName } from "@/sanity/lib/products/searchProductsByName";
 
-interface SearchPageProps {
+async function SearchPage({
+  searchParams,
+}: {
   searchParams: {
     query: string;
   };
-}
-
-async function SearchPage({ searchParams }: SearchPageProps) {
-  const { query } = searchParams;
+}) {
+  const { query } = await searchParams;
 
   const products = await searchProductsByName(query);
 
@@ -20,7 +20,7 @@ async function SearchPage({ searchParams }: SearchPageProps) {
             No products found for: {query}
           </h1>
           <p className="text-gray-600 text-center">
-            Try searching with different keywords
+            Try serching with different keywords
           </p>
         </div>
       </div>
